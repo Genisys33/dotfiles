@@ -68,6 +68,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 bindsym XF86LaunchA exec "galgulator"
+bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Shudown Computer or Reboot ' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'reboot'" 
 
 # Workspace names
 set $ws1 "Term"
@@ -125,7 +126,7 @@ exec xfce4-power-manager
 exec blueberry-tray
 exec nm-applet
 exec --no-startup-id discord
-exec --no-startup-id xautolock -time 4 -locker burlock 
+exec --no-startup-id xautolock -time 3 -locker burlock 
 exec --no-startup-id thunderbird
 exec terminator -T 'Config' -e 'vim ~/.config/i3/config'
 
