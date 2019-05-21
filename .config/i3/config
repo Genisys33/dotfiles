@@ -78,7 +78,7 @@ set $ws4 "Web"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
+set $ws8 "Movies"
 set $ws9 "Mail"
 set $ws10 "Config"
 
@@ -109,6 +109,7 @@ bindsym $mod+Shift+10 move container to workspace $ws10
 # Open application on specific workspace
 assign [class="discord"] $ws3
 assign [class="Firefox|qutebrowser"] $ws4
+assign [class="vlc"] $ws8
 assign [class="Thunderbird"] $ws9
 assign [title="Config"] $ws10
 
@@ -119,7 +120,7 @@ for_window [title="Bluetooth"] floating enable
 for_window [title="Float"] floating enable, resize set 600 350
 
 # Application Autostart
-exec feh --bg-scale -z ~/Images/anime/
+exec feh --bg-scale ~/Images/anime/1557647556030.jpg
 exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 exec xset -b
 exec xfce4-power-manager
@@ -128,6 +129,7 @@ exec nm-applet
 exec --no-startup-id discord
 exec --no-startup-id xautolock -time 3 -locker burlock 
 exec --no-startup-id thunderbird
+exec dnfdragora-updater
 exec terminator -T 'Config' -e 'vim ~/.config/i3/config'
 
 # Rreload the configure i3
