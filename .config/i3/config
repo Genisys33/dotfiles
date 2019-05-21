@@ -77,7 +77,7 @@ set $ws3 "Discord"
 set $ws4 "Web"
 set $ws5 "5"
 set $ws6 "6"
-set $ws7 "7"
+set $ws7 "Pdf"
 set $ws8 "Movies"
 set $ws9 "Mail"
 set $ws10 "Config"
@@ -104,11 +104,12 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+10 move container to workspace $ws10
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Open application on specific workspace
 assign [class="discord"] $ws3
 assign [class="Firefox|qutebrowser"] $ws4
+assign [class="Evince"] $ws7
 assign [class="vlc"] $ws8
 assign [class="Thunderbird"] $ws9
 assign [title="Config"] $ws10
