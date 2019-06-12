@@ -27,13 +27,15 @@ alias mines='gnome-mines'
 alias SS="sudo systemctl" \
 	diff="diff --color=auto" \
 	mkd="mkdir -pv"\
-	snd="sudo shutdown -h now"
+	snd="sudo shutdown -h now" \
+    SV="sudo systemctl start mariadb httpd"
 
 #dnf
 alias install="sudo dnf install" \
 	upgrade="sudo dnf upgrade" \
 	search="dnf search" \
-	remove="sudo dnf remove"
+	remove="sudo dnf remove" \
+	bisou="systemctl poweroff"
 
 ###### PROMPT ######
 #[user directory]:>
