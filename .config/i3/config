@@ -86,8 +86,8 @@ set $ws7 "7-Pdf"
 set $ws8 "8-Movies"
 set $ws9 "9-Mail"
 set $ws10 "10-Config"
-set $ws11 "11"
-set $ws12 "12"
+set $ws11 "11-Vbox"
+set $ws12 "12-Vm"
 set $ws13 "13"
 set $ws14 "14"
 set $ws15 "15"
@@ -155,6 +155,9 @@ assign [class="Evince"] $ws7
 assign [class="vlc"] $ws8
 assign [class="Thunderbird"] $ws9
 assign [title="Config"] $ws10
+assign [class="VirtualBox Manager"] $ws11
+assign [class="VirtualBoxVM"] $ws12
+
 
 # Application in floating mode
 for_window [class="Galculator"] floating enable
