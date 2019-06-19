@@ -11,23 +11,25 @@ fi
 # User specific aliases and functions
 
 #other
-alias neo="neofetch"
+alias neo="neofetch" \
+    config="vim ~/.config/i3/config"
 alias date="while ((i==i)); do date '+%T %D' | toilet -f term -F border --gay; sleep 1; clear; done" #Thanks LL
 
 #game
 alias mines='gnome-mines'
 
 #edit
- subl="vim" \
-	nano="vim" \
-	vi="vim" \
-	emacs="vim"
+alias   subl="vim" \
+	    nano="vim" \
+	    vi="vim" \
+	    emacs="vim"
 
 #sys
 alias SS="sudo systemctl" \
 	diff="diff --color=auto" \
-	mkd="mkdir -pv"\
-	snd="sudo shutdown -h now" \
+	mkd="mkdir -pv" \
+    wak="xautolock -enable" \
+    nowak="xautolock -disable" \
     SV="sudo systemctl start mariadb httpd"
 
 #dnf

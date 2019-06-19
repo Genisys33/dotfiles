@@ -88,7 +88,7 @@ set $ws9 "9-Mail"
 set $ws10 "10-Config"
 set $ws11 "11-Vbox"
 set $ws12 "12-Vm"
-set $ws13 "13"
+set $ws13 "13-Latex"
 set $ws14 "14"
 set $ws15 "15"
 set $ws16 "16"
@@ -157,6 +157,7 @@ assign [class="Thunderbird"] $ws9
 assign [title="Config"] $ws10
 assign [class="VirtualBox Manager"] $ws11
 assign [class="VirtualBoxVM"] $ws12
+assign [class="Texmaker"] $ws13
 
 
 # Application in floating mode

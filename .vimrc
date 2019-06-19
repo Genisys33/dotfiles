@@ -2,6 +2,24 @@ set nu
 set mouse=a
 set ignorecase
 
+" These next four lines are so that I break the habit of using the arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+" Indetation and spacing rules
+set autoindent
+set expandtab
+set ts=4
+set shiftwidth=4
+set softtabstop=4
+
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+
+
+"""HTML
 " inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 " 
 " autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
@@ -21,18 +39,4 @@ set ignorecase
 " autocmd FileType html inoremap ,th <th></th><++><Esc>Fhcit
 " autocmd FileType html inoremap ,tab <table><Enter></table><Esc>O
 
-" These next four lines are so that I break the habit of using the arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
 
-" Indetation and spacing rules
-set autoindent
-set expandtab
-set ts=4
-set shiftwidth=4
-set softtabstop=4
-
-" autocmd InsertEnter * set cul
-" autocmd InsertLeave * set nocul
