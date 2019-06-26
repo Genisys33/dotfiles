@@ -15,7 +15,8 @@ bindsym $mod+a exec terminator
 bindsym $mod+Shift+a exec terminator -T 'Float'
 bindsym $mod+z exec firefox
 bindsym $mod+e exec xfce4-terminal -e ranger
-bindsym $mod+r exec xfce4-terminal -e vim 
+bindsym $mod+r exec terminator -e vim 
+bindsym $mod+t exec texmaker
 bindsym $mod+d exec rofi -show run 
 bindsym $mod+l exec --no-startup-id  xautolock -locknow; exec --no-startup-id xset dpms force off
 
@@ -167,7 +168,7 @@ for_window [title="Bluetooth"] floating enable
 for_window [title="Float"] floating enable, resize set 600 350
 
 # Application Autostart
-exec feh --bg-scale Images/Rezz-1.jpg
+exec feh --bg-scale Images/anime/sad-day.jpg
 exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 exec xset -b
 exec xfce4-power-manager
@@ -187,7 +188,7 @@ bindsym $mod+Shift+r restart;exec notify-send 'Config Restart'
 # Windows Custom
 bar { 
 	status_command i3status
-	i3bar_command i3bar
+    i3bar_command i3bar
 	position top
 	mode dock
 	modifier none
@@ -195,6 +196,7 @@ bar {
 
 for_window [class="^.*"] title_format "  %title"
 for_window [class="^.*"] border pixel 0
+
 gaps inner 7
 gaps outer -1
 smart_gaps on
@@ -237,5 +239,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-
