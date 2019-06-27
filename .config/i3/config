@@ -148,8 +148,10 @@ bindsym $mod+Shift+Ctrl+0 move container to workspace $ws20
 # Dual Screen
 workspace $ws3 output $monitorleft
 workspace $ws6 output $monitorright
+workspace $ws7 output $monitorright
 workspace $ws8 output $monitorright
 workspace $ws10 output $monitorright
+workspace $ws13 output $monitorleft
 
 # Open application on specific workspace
 assign [class="discord"] $ws3
