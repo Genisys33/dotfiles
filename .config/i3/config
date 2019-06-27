@@ -70,13 +70,13 @@ bindsym $mod+Shift+space floating toggle
 focus_follows_mouse no
 
 # F1-F12
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
-bindsym XF86LaunchA exec galgulator
-bindsym XF86LaunchB exec xfce4-screenshooter
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10" #F1
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10" #F2
+bindsym XF86LaunchA exec galgulator #F3
+bindsym XF86LaunchB exec xfce4-screenshooter #F4
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle #F10
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #F11
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #F12
 bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Shudown Computer or Reboot ' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'reboot'" 
 
 # Workspace names
