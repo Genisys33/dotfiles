@@ -16,9 +16,12 @@ bindsym $mod+Shift+a exec terminator -T 'Float'
 bindsym $mod+z exec firefox
 bindsym $mod+e exec xfce4-terminal -e ranger
 bindsym $mod+r exec terminator -e vim 
-bindsym $mod+t exec texmaker
+bindsym $mod+t exec terminator -T 'Latex' --working-directory='~/Documents/Latex'
 bindsym $mod+d exec rofi -show run 
 bindsym $mod+l exec --no-startup-id  xautolock -locknow; exec --no-startup-id xset dpms force off
+
+# For demonstration
+bindsym $mod+m exec screenkey
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3 exit'"
@@ -158,6 +161,7 @@ assign [class="Thunderbird"] $ws9
 assign [title="Config"] $ws10
 assign [class="VirtualBox Manager"] $ws11
 assign [class="VirtualBoxVM"] $ws12
+assign [title="Latex"] $ws13
 assign [class="Texmaker"] $ws13
 
 
