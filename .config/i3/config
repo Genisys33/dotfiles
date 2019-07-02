@@ -93,7 +93,7 @@ set $ws10 "10-Config"
 set $ws11 "11-Vbox"
 set $ws12 "12-Vm"
 set $ws13 "13-Latex"
-set $ws14 "14"
+set $ws14 "14-Libre Office"
 set $ws15 "15"
 set $ws16 "16"
 set $ws17 "17"
@@ -165,6 +165,7 @@ assign [class="VirtualBox Manager"] $ws11
 assign [class="VirtualBoxVM"] $ws12
 assign [title="Latex"] $ws13
 assign [class="Texmaker"] $ws13
+assign [class="libreoffice-*"] $ws14
 
 
 # Application in floating mode
@@ -185,7 +186,7 @@ exec --no-startup-id xautolock -time 3 -locker burlock
 exec --no-startup-id thunderbird
 exec dnfdragora-updater
 exec terminator -T 'Config' -e 'vim ~/.config/i3/config'
-exec terminator -T 'Irc' -e 'weechat' 
+exec terminator -T 'Irc' -e 'ssh server -x irc'
 
 # Rreload the configure i3
 bindsym $mod+Shift+c reload;exec notify-send 'Config Reload'

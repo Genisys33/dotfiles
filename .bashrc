@@ -14,9 +14,8 @@ fi
 alias neo="neofetch" \
     config="vim ~/.config/i3/config"
 alias date="while ((i==i)); do date '+%T %D' | toilet -f term -F border --gay; sleep 1; clear; done" #Thanks LL
-
-#game
 alias mines='gnome-mines'
+alias friends="vlc -f ~/Musique/Toy\ Story\ -\ Je\ suis\ ton\ ami\ I\ Disney.mp3"
 
 #edit
 alias   subl="vim" \
