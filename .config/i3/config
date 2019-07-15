@@ -19,6 +19,7 @@ bindsym $mod+r exec terminator -e vim
 bindsym $mod+t exec terminator -T 'Latex' --working-directory='~/Documents/Latex'
 bindsym $mod+d exec rofi -show run 
 bindsym $mod+l exec --no-startup-id  xautolock -locknow; exec --no-startup-id xset dpms force off
+bindsym $mod+shift+y exec terminator -T 'Irc' -e 'ssh server -x irc'
 
 # For demonstration
 bindsym $mod+m exec screenkey
