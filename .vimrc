@@ -39,4 +39,6 @@ autocmd InsertLeave * set nocul
 " autocmd FileType html inoremap ,th <th></th><++><Esc>Fhcit
 " autocmd FileType html inoremap ,tab <table><Enter></table><Esc>O
 
-
+" For undo history
+set undofile
+set undodir=~/.vim/undodir

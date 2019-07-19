@@ -98,7 +98,7 @@ set $ws14 "14-Libre Office"
 set $ws15 "15"
 set $ws16 "16"
 set $ws17 "17"
-set $ws18 "18"
+set $ws18 "18-Musique"
 set $ws19 "19"
 set $ws20 "20"
 
@@ -167,12 +167,14 @@ assign [class="VirtualBoxVM"] $ws12
 assign [title="Latex"] $ws13
 assign [class="Texmaker"] $ws13
 assign [class="libreoffice-*"] $ws14
+assign [class="Pragha"] $ws18
 
 
 # Application in floating mode
 for_window [class="Galculator"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [title="Bluetooth"] floating enable
+for_window [title="Contrôle du volume"] floating disable
 for_window [title="Float"] floating enable, resize set 600 350
 
 # Application Autostart
