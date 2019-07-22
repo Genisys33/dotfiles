@@ -18,7 +18,7 @@ bindsym $mod+e exec xfce4-terminal -e ranger
 bindsym $mod+r exec terminator -e vim 
 bindsym $mod+t exec terminator -T 'Latex' --working-directory='~/Documents/Latex'
 bindsym $mod+d exec rofi -show run 
-bindsym $mod+l exec --no-startup-id  xautolock -locknow; exec --no-startup-id xset dpms force off
+bindsym $mod+l exec --no-startup-id xautolock -locknow; exec bash -c "sleep 0.5 && xset dpms force off"
 bindsym $mod+shift+y exec terminator -T 'Irc' -e 'ssh server -x irc'
 
 # For demonstration
@@ -78,6 +78,7 @@ bindsym XF86LaunchB exec xfce4-screenshooter
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
+bindsym XF86Display exec --no-startup-id arandr
 bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Shudown Computer or Reboot ' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'reboot'" 
 
 # Workspace names
