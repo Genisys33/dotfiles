@@ -14,6 +14,8 @@ set expandtab
 set ts=4
 set shiftwidth=4
 set softtabstop=4
+map <F4> :set spell&<CR>
+map <F5> :set spell spelllang=fr_FR<CR>
 
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
@@ -38,6 +40,8 @@ autocmd InsertLeave * set nocul
 " autocmd FileType html inoremap ,tr <tr></tr><Enter><++><Esc>kf<i
 " autocmd FileType html inoremap ,th <th></th><++><Esc>Fhcit
 " autocmd FileType html inoremap ,tab <table><Enter></table><Esc>O
+
+"""Latex
 
 " For undo history
 set undofile

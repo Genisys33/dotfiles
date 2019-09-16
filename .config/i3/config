@@ -1,11 +1,12 @@
 # i3 config file 
-
+#
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
 # Set monitor value
 set $monitorleft eDP1
-set $monitorright HDMI-1
+set $monitorright HDMI1
+set $monitorright2 HDMI2
 
 # Kill focused window 
 bindsym $mod+Shift+q kill
@@ -78,7 +79,8 @@ bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10" 
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10" 
 bindsym XF86Display exec --no-startup-id arandr
-bindsym XF86Tools exec terminator -T 'Config' -e 'vim ~/.config/i3/config'
+bindsym XF86Tools exec terminator -T 'Fichier Systeme' -e 'ranger ~/.config/system'
+#bindsym XF86Tools exec rofi 'terminator -e 'vim "/home/idk/.config/system/$(ls ~/.config/system/ | rofi -dmenu -i -lines 8 -p "Edit")"''
 bindsym XF86Search exec rofi -show run
 bindsym XF86Explorer exec xfce4-screenshooter 
 bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Shudown Computer or Reboot ' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'reboot'" 
@@ -102,7 +104,7 @@ set $ws15 "15"
 set $ws16 "16"
 set $ws17 "17"
 set $ws18 "18-Musique"
-set $ws19 "19"
+set $ws19 "19-Fichier Systeme"
 set $ws20 "20"
 
 # Switch to workspace
@@ -155,6 +157,7 @@ workspace $ws6 output $monitorright
 workspace $ws7 output $monitorright
 workspace $ws8 output $monitorright
 workspace $ws10 output $monitorright
+workspace $ws10 output $monitorright
 workspace $ws13 output $monitorleft
 
 # Open application on specific workspace
@@ -168,9 +171,9 @@ assign [title="Config"] $ws10
 assign [class="VirtualBox Manager"] $ws11
 assign [class="VirtualBoxVM"] $ws12
 assign [title="Latex"] $ws13
-assign [class="Texmaker"] $ws13
 assign [class="libreoffice-*"] $ws14
 assign [class="Pragha"] $ws18
+assign [title="Fichier Systeme"] $ws19
 
 
 # Application in floating mode
@@ -181,14 +184,14 @@ for_window [title="Contrôle du volume"] floating disable
 for_window [title="Float"] floating enable, resize set 600 350
 
 # Application Autostart
-exec feh --bg-scale Images/anime/sad-day.jpg
+exec feh --bg-scale Images/anime/1564886577692.jpg
 exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 exec xset -b
 exec xfce4-power-manager
 exec blueberry-tray
 exec nm-applet
 exec --no-startup-id discord
-exec --no-startup-id xautolock -time 3 -locker burlock 
+exec --no-startup-id xautolock -time 3 -locker burlock; exec bash -c "sleep 0.5 && xset dpms force off"
 exec --no-startup-id thunderbird
 exec dnfdragora-updater
 exec terminator -T 'Config' -e 'vim ~/.config/i3/config'
