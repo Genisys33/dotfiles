@@ -4,9 +4,9 @@
 set $mod Mod4
 
 # Set monitor value
-set $monitorleft eDP1
-set $monitorright HDMI1
-set $monitorright2 HDMI2
+set $left_home DP2-2
+set $mid_home DP2-1
+set $right_home DP2-3
 
 # Kill focused window 
 bindsym $mod+Shift+q kill
@@ -152,13 +152,13 @@ bindsym $mod+Shift+Ctrl+9 move container to workspace $ws19
 bindsym $mod+Shift+Ctrl+0 move container to workspace $ws20
 
 # Dual Screen
-workspace $ws3 output $monitorleft
-workspace $ws6 output $monitorright
-workspace $ws7 output $monitorright
-workspace $ws8 output $monitorright
-workspace $ws10 output $monitorright
-workspace $ws10 output $monitorright
-workspace $ws13 output $monitorleft
+workspace $ws3 output $right_home
+workspace $ws4 output $left_home
+workspace $ws6 output $right_home
+workspace $ws8 output $mid_home
+workspace $ws9 output $right_home
+workspace $ws10 output $left_home
+workspace $ws13 output $mid_home
 
 # Open application on specific workspace
 assign [class="discord"] $ws3
@@ -184,7 +184,7 @@ for_window [title="Contrôle du volume"] floating disable
 for_window [title="Float"] floating enable, resize set 600 350
 
 # Application Autostart
-exec feh --bg-scale Images/anime/1564886577692.jpg
+exec feh --bg-scale Images/anime/1563162302015.jpg
 exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 exec xset -b
 exec xfce4-power-manager
