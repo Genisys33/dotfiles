@@ -17,7 +17,12 @@ set shiftwidth=4
 set softtabstop=4
 let mapleader =","
 
+" For undo history
+set undofile
+set undodir=~/.vim/undodir
 
+" Template
+au bufNewFile *.c 0r ~/.vim/templates/default/default.c
 
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
@@ -85,7 +90,7 @@ autocmd InsertLeave * set nocul
 "	autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
 "
 "
-"""HTML
+"HTML
     autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
     autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
     autocmd FileType html inoremap ,1 <h1></h1><Enter><Enter><++><Esc>2kf<i
@@ -103,6 +108,6 @@ autocmd InsertLeave * set nocul
     autocmd FileType html inoremap ,th <th></th><++><Esc>Fhcit
     autocmd FileType html inoremap ,tab <table><Enter></table><Esc>O
 
-" For undo history
-set undofile
-set undodir=~/.vim/undodir
+"C
+    autocmd Filetype c inoremap ,i <Esc>ggo#include<><Enter><Esc>kf>i
+"    autocmd Filetype c inoremap ,
