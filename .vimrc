@@ -3,6 +3,7 @@ set nu
 set mouse=a
 set ignorecase
 set autoindent
+syntax on
 
 " These next four lines are so that I break the habit of using the arrow keys
 noremap <Up> <Nop>
