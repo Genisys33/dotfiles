@@ -5,7 +5,7 @@ set ignorecase
 set autoindent
 
 " These next four lines are so that I break the habit of using the arrow keys
-noremap <Up> <N<op>
+noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
@@ -23,6 +23,8 @@ set undodir=~/.vim/undodir
 
 " Template
 au bufNewFile *.c 0r ~/.vim/templates/default/default.c
+au bufNewFile *.sh 0r ~/.vim/templates/default/default.sh
+au bufNewFile *.md 0r ~/.vim/templates/default/default.md
 
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
@@ -36,10 +38,10 @@ autocmd InsertLeave * set nocul
 	autocmd Filetype markdown,rmd,md map <leader>w yiWi[<esc>Ea](<esc>pa)
 	autocmd Filetype markdown,rmd,md inoremap ,n ---<Enter><Enter>
 	autocmd Filetype markdown,rmd,md inoremap ,bo ****<++><Esc>F*hi
-	autocmd Filetype markdown,rmd,md inoremap ,s ~~~~<++><Esc>F~hi
+	autocmd Filetype markdown,rmd,md inoremap ,i * [](#<++>)<Enter><++><Esc>kF[a
 	autocmd Filetype markdown,rmd,md inoremap ,e **<++><Esc>F*i
 	autocmd Filetype markdown,rmd,md inoremap ,h ====<Space><++><Esc>F=hi
-	autocmd Filetype markdown,rmd,md inoremap ,i ![](<++>)<++><Esc>F[a
+	autocmd Filetype markdown,rmd,md inoremap ,p ![](<++>)<++><Esc>F[a
 	autocmd Filetype markdown,rmd,md inoremap ,a [](<++>)<++><Esc>F[a
 	autocmd Filetype markdown,rmd,md inoremap ,1 #<Space><Enter><Enter><++><Esc>2kA
 	autocmd Filetype markdown,rmd,md inoremap ,2 ##<Space><Enter><Enter><++><Esc>2kA
@@ -109,5 +111,6 @@ autocmd InsertLeave * set nocul
     autocmd FileType html inoremap ,tab <table><Enter></table><Esc>O
 
 "C
-    autocmd Filetype c inoremap ,i <Esc>ggo#include<><Enter><Esc>kf>i
-"    autocmd Filetype c inoremap ,
+    autocmd Filetype c inoremap ,i <Esc>ggo#include<><Esc>kf>i
+    autocmd Filetype c inoremap ,f <Space>(<++>)<Space>{<Enter><++><Enter>}<Esc>2k0i
+    autocmd Filetype c inoremap /* /*<Space><Space><Space>*/<Esc>3hi
