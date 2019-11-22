@@ -4,6 +4,7 @@ set mouse=a
 set ignorecase
 set autoindent
 syntax on
+command Reload execute ":so $MYVIMRC"
 
 " These next four lines are so that I break the habit of using the arrow keys
 noremap <Up> <Nop>
@@ -36,20 +37,22 @@ autocmd InsertLeave * set nocul
 	map <leader><leader> <Esc>/<++><Enter>"_c4l
 
 "MARKDOWN
-	autocmd Filetype markdown,rmd,md map <leader>w yiWi[<esc>Ea](<esc>pa)
-	autocmd Filetype markdown,rmd,md inoremap ,n ---<Enter><Enter>
-	autocmd Filetype markdown,rmd,md inoremap ,bo ****<++><Esc>F*hi
-	autocmd Filetype markdown,rmd,md inoremap ,i * [](#<++>)<Enter><++><Esc>kF[a
-	autocmd Filetype markdown,rmd,md inoremap ,e **<++><Esc>F*i
-	autocmd Filetype markdown,rmd,md inoremap ,h ====<Space><++><Esc>F=hi
-	autocmd Filetype markdown,rmd,md inoremap ,p ![](<++>)<++><Esc>F[a
-	autocmd Filetype markdown,rmd,md inoremap ,a [](<++>)<++><Esc>F[a
-	autocmd Filetype markdown,rmd,md inoremap ,1 #<Space><Enter><Enter><++><Esc>2kA
-	autocmd Filetype markdown,rmd,md inoremap ,2 ##<Space><Enter><Enter><++><Esc>2kA
-	autocmd Filetype markdown,rmd,md inoremap ,3 ###<Space><Enter><Enter><++><Esc>2kA
-	autocmd Filetype markdown,rmd,md inoremap ,l --------<Enter>
-	autocmd Filetype markdown,rmd,md inoremap ,ba ```{bash}<CR>```<CR><CR><esc>2kO
-	autocmd Filetype markdown,rmd,md inoremap ,c ```<cr>```<cr><cr><esc>2kO
+	autocmd FileType markdown,rmd,md map <leader>w yiWi[<esc>Ea](<esc>pa)
+	autocmd FileType markdown,rmd,md inoremap ,n ---<Enter><Enter>
+	autocmd FileType markdown,rmd,md inoremap ,bo ****<++><Esc>F*hi
+    autocmd FileType markdown,rmd,md inoremap ,it __<Space><++><Esc>5hi
+	autocmd FileType markdown,rmd,md inoremap ,im * [](#<++>)<Enter><++><Esc>kF[a
+	autocmd FileType markdown,rmd,md inoremap ,e **<++><Esc>F*i
+	autocmd FileType markdown,rmd,md inoremap ,h ====<Space><++><Esc>F=hi
+	autocmd FileType markdown,rmd,md inoremap ,p ![](<++>)<++><Esc>F[a
+	autocmd FileType markdown,rmd,md inoremap ,a [](<++>)<++><Esc>F[a
+	autocmd FileType markdown,rmd,md inoremap ,1 #<Space><Enter><Enter><++><Esc>2kA
+	autocmd FileType markdown,rmd,md inoremap ,2 ##<Space><Enter><Enter><++><Esc>2kA
+	autocmd FileType markdown,rmd,md inoremap ,3 ###<Space><Enter><Enter><++><Esc>2kA
+    autocmd FileType markdown,rmd,md inoremap ,4 #### <Space><Enter><Enter><++><Esc>2kA
+	autocmd FileType markdown,rmd,md inoremap ,l --------<Enter>
+	autocmd FileType markdown,rmd,md inoremap ,ba ```{bash}<CR>```<CR><CR><esc>2kO
+	autocmd FileType markdown,rmd,md inoremap ,c ```<cr>```<cr><cr><esc>2kO
 
 
 """"LATEX
@@ -112,6 +115,6 @@ autocmd InsertLeave * set nocul
     autocmd FileType html inoremap ,tab <table><Enter></table><Esc>O
 
 "C
-    autocmd Filetype c inoremap ,i <Esc>ggo#include<><Esc>kf>i
+    autocmd Filetype c inoremap ,i <Esc>ggo#include<><Esc>$i
     autocmd Filetype c inoremap ,f <Space>(<++>)<Space>{<Enter><++><Enter>}<Esc>2k0i
     autocmd Filetype c inoremap /* /*<Space><Space><Space>*/<Esc>3hi
