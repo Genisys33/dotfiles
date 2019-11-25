@@ -1,5 +1,5 @@
 # i3 config file 
-#
+
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -12,38 +12,38 @@ set $right_home DP2-3
 bindsym $mod+Shift+q kill
 
 # Basic Bindings
-bindsym $mod+a exec terminator 
-bindsym $mod+Shift+a exec terminator -T 'Float'
+bindsym $mod+a exec $TERMINAL 
+bindsym $mod+Shift+a exec $TERMINAL -T 'Float'
 bindsym $mod+z exec firefox
-bindsym $mod+e exec xfce4-terminal -e ranger
-bindsym $mod+r exec terminator -e vim 
-bindsym $mod+t exec terminator -T 'Latex' --working-directory='~/Documents/Latex'
+bindsym $mod+e exec $TERMINAL -e ranger
+bindsym $mod+r exec $TERMINAL -e vim 
+bindsym $mod+t exec terminator -t 'latex' --working-directory='~/documents/latex'
 bindsym $mod+d exec rofi -show run 
 bindsym $mod+l exec --no-startup-id xautolock -locknow; exec bash -c "sleep 0.5 && xset dpms force off"
-bindsym $mod+shift+y exec terminator -T 'Irc' -e 'ssh server -x irc'
+bindsym $mod+shift+y exec $TERMINAL -T 'irc' -e 'ssh server -x irc'
 
-# For demonstration
+# for demonstration
 bindsym $mod+m exec screenkey
 
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3 exit'"
+# exit i3 (logs you out of your x session)
+bindsym $mod+shift+e exec "i3-nagbar -t warning -m 'you pressed the exit shortcut. do you really want to exit i3? this will end your x session.' -b 'yes, exit i3' 'i3 exit'"
 
-# Resize window (you can also use the mouse for that)
+# resize window (you can also use the mouse for that)
 bindsym $mod+x mode "resize"
 mode "resize" {
         
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym left resize shrink width 10 px or 10 ppt
+        bindsym down resize grow height 10 px or 10 ppt
+        bindsym up resize shrink height 10 px or 10 ppt
+        bindsym right resize grow width 10 px or 10 ppt
 
-        # exit resize mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        # exit resize mode: enter or escape
+        bindsym return mode "default"
+        bindsym escape mode "default"
 }
 
-# Movement
+# movement
 bindsym $mod+f fullscreen toggle
 bindsym $mod+q layout toggle split
 bindsym $mod+h split h
@@ -164,8 +164,9 @@ workspace $ws13 output $mid_home
 
 # Open application on specific workspace
 assign [class="discord"] $ws3
+assign [class="Slack"] $ws17
 assign [class="Firefox|qutebrowser"] $ws4
-assign [title="Irc"] $ws6
+assign [title="irc"] $ws6
 assign [class="Evince"] $ws7
 assign [class="vlc"] $ws8
 assign [class="Thunderbird"] $ws9
@@ -177,16 +178,16 @@ assign [class="libreoffice-*"] $ws14
 assign [class="Pragha"] $ws18
 assign [title="Fichier Systeme"] $ws19
 
-
 # Application in floating mode
 for_window [class="Galculator"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [title="Bluetooth"] floating enable
 for_window [title="Contrôle du volume"] floating disable
 for_window [title="Float"] floating enable, resize set 600 350
+for_window [class="discord"] resize set 700 400
 
 # Application Autostart
-exec feh --bg-scale Images/anime/1563162302015.jpg
+exec feh --bg-scale Images/anime/1572184795985.png
 exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 exec xset -b
 exec xfce4-power-manager
@@ -197,7 +198,7 @@ exec --no-startup-id xautolock -time 3 -locker burlock; exec bash -c "sleep 0.5 
 exec --no-startup-id thunderbird
 exec dnfdragora-updater
 exec terminator -T 'Config' -e 'vim ~/.config/i3/config'
-exec terminator -T 'Irc' -e 'ssh server -x irc'
+exec $TERMINAL -T 'irc' -e 'ssh server -x irc'
 
 # Rreload the configure i3
 bindsym $mod+Shift+c reload;exec notify-send 'Config Reload'
@@ -213,7 +214,7 @@ bar {
 }
 
 for_window [class="^.*"] title_format "  %title"
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 
 gaps inner 7
 gaps outer -1
@@ -254,6 +255,25 @@ mode "$mode_gaps_outer" {
         bindsym Shift+minus gaps outer all minus 5
         bindsym Shift+0     gaps outer all set 0
 
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Resize window
+bindsym $mod+shift+b mode "resize"
+mode "resize" {
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # exit resize mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
