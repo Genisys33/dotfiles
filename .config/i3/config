@@ -187,7 +187,7 @@ for_window [title="Float"] floating enable, resize set 600 350
 for_window [class="discord"] resize set 700 400
 
 # Application Autostart
-exec feh --bg-scale Images/anime/1572184795985.png
+exec feh --bg-scale Images/anime/1575139435578.png
 exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 exec xset -b
 exec xfce4-power-manager
