@@ -84,8 +84,8 @@ bindsym XF86Tools exec terminator -T 'Fichier Systeme' -e 'ranger ~/.config/syst
 bindsym XF86Search exec rofi -show run
 bindsym XF86Explorer exec xfce4-screenshooter 
 bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Shudown Computer or Reboot ' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'reboot'" 
-bindsym F9 exec --no-startup-id ~/.screenlayout/solo.sh
-bindsym F10 exec --no-startup-id ~/.screenlayout/home.sh
+bindsym F9 exec --no-startup-id ~/.screenlayout/Solo.sh
+bindsym F10 exec --no-startup-id ~/.screenlayout/Home.sh
 
 # Workspace names
 set $ws1 "1-Term"
@@ -188,7 +188,7 @@ for_window [class="discord"] resize set 700 400
 for_window [class="Arandr"] floating enable, resize set 750 500 
 
 # Application Autostart
-exec feh --bg-scale Images/anime/1571328539912.png
+exec feh --bg-scale ~/Images/anime/1571328539912.png
 exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 exec xset -b
 exec xfce4-power-manager
