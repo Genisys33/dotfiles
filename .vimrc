@@ -28,6 +28,7 @@ au bufNewFile *.c 0r ~/.vim/templates/default/default.c
 au bufNewFile *.sh 0r ~/.vim/templates/default/default.sh
 au bufNewFile *.md 0r ~/.vim/templates/default/default.md
 au bufNewFile *.ptex 0r ~/.vim/templates/default/presentation.tex
+au bufNewFile *.ftex 0r ~/.vim/templates/default/fiche.tex
 
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul

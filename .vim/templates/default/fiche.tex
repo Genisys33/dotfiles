@@ -1,0 +1,51 @@
+% -*- mode: tex -*-
+% vi: set ft=tex :
+
+\documentclass[13pt,french]{report}
+\usepackage{geometry}
+ \geometry{a4paper,left=15mm,right=15mm,top=20mm,bottom=18mm}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{boxedminipage}
+\usepackage[bottom]{footmisc}
+
+% Package pour le code dans les encadrés
+\usepackage{listings}
+
+\usepackage{color} % on en a besoin pour utiliser les couleurs
+\definecolor{grey}{rgb}{0.95,0.95,0.95} % on définit la couleur grise (c'est un gris très clair)
+\definecolor{grey}{rgb}{0.9,0.9,0.9}
+\definecolor{mygreen}{rgb}{0.2,0.4,0.2}
+\definecolor{purple}{rgb}{0.6,0.19,0.01}
+\definecolor{gray}{rgb}{0.8,0.8,0.8}
+
+\begin{document}
+% Définition de l'encadré pour la mise en forme
+\lstset{%
+%                                       Basic Appearance%
+                                        language=Bash,
+                    backgroundcolor=\color{grey},
+                                        basicstyle=\scriptsize\ttfamily,
+                                        commentstyle=\itshape\color{blue},
+%                                       Basic Layout%
+                                        tabsize=4,
+                                        showtabs=false,
+                                        showspaces=false,
+                                        showstringspaces=false,
+%                                       Margins%
+                                        xleftmargin=0.0\textwidth,
+                                        xrightmargin=0.0\textwidth,
+                                        breaklines=true,
+%                                       Frame%
+                                        frame=lines,
+                                        framerule=0.5pt,
+                                        rulecolor=\color{black},
+                                        %backgroundcolor=\color{grey},
+                                        framexleftmargin=0.01\textwidth,
+                                        framexrightmargin=0.01\textwidth,
+                                        }
+
+
+
+\end{document}
