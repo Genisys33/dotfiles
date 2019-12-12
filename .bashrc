@@ -39,6 +39,11 @@ alias install="sudo dnf install" \
 	remove="sudo dnf remove" \
 	bisou="systemctl poweroff"
 
+#virtu
+alias bootusb='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-screen -hda'\
+    bootiso='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-screen -boot d -cdrom'\
+    bootpxe='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-screen -boot n -net nic -net tap,ifname=virttap,script=no,downscript=no'
+
 ###### PROMPT ######
 #[user directory]:>
 #PS1="[\u \W]:>"
