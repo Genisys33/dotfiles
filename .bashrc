@@ -49,4 +49,4 @@ alias bootusb='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-scr
 #PS1="[\u \W]:>"
 
 #[user(in red) directory(in green)]:>
-PS1="[\[\e[31m\]\u\[\e[m\] \[\e[32m\]\W\[\e[m\]]:>" 
+PS1="[\[\e[31m\]\u\[\e[m\] \[\e[32m\]\W\[\e[m\]]:> " 
