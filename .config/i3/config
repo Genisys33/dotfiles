@@ -45,7 +45,7 @@ mode "resize" {
         bindsym escape mode "default"
 }
 
-# movement
+# Movement
 bindsym $mod+f fullscreen toggle
 bindsym $mod+q layout toggle split
 bindsym $mod+h split h
