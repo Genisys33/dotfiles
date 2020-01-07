@@ -88,6 +88,7 @@ bindsym XF86Explorer exec xfce4-screenshooter
 bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Shudown Computer or Reboot ' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'reboot'" 
 bindsym F9 exec --no-startup-id ~/.screenlayout/Solo.sh
 bindsym F10 exec --no-startup-id ~/.screenlayout/Home.sh
+bindsym Shift+F10 exec --no-startup-id ~/.screenlayout/Game.sh
 
 # Workspace names
 set $ws1 "1-Term"
@@ -163,6 +164,7 @@ workspace $ws8 output $mid_home
 workspace $ws9 output $right_home
 workspace $ws10 output $left_home
 workspace $ws13 output $mid_home
+workspace $ws15 output $mid_home
 
 # Open application on specific workspace
 assign [class="discord"] $ws3
@@ -194,7 +196,7 @@ for_window [class="msgcompose"] floating enable
 for_window [title="Musique"] floating enable, resize set 650 450
 
 # Application Autostart
-exec feh --bg-scale ~/Images/anime/1571200786751.jpg
+exec feh --bg-scale ~/Images/anime/1577321457093.jpg
 exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 exec xset -b
 exec xfce4-power-manager

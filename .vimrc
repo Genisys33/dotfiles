@@ -54,7 +54,7 @@ autocmd InsertLeave * set nocul
 	autocmd FileType markdown,rmd,md inoremap ,3 ###<Space><Enter><Enter><++><Esc>2kA
     autocmd FileType markdown,rmd,md inoremap ,4 #### <Space><Enter><Enter><++><Esc>2kA
 	autocmd FileType markdown,rmd,md inoremap ,l --------<Enter>
-	autocmd FileType markdown,rmd,md inoremap ,ba ```{bash}<CR>```<CR><CR><esc>2kO
+	autocmd FileType markdown,rmd,md inoremap ,ba <Esc>o<Enter>```{bash}<CR>```<CR><CR><++><esc>2kO
 	autocmd FileType markdown,rmd,md inoremap ,c ```<cr>```<cr><cr><esc>2kO
 
 
