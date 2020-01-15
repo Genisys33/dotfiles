@@ -121,6 +121,6 @@ autocmd InsertLeave * set nocul
     autocmd FileType html inoremap ,> &#x3009;
 
 "C
-    autocmd Filetype c inoremap ,i <Esc>ggo#include<><Esc>$i
+    autocmd Filetype c inoremap ,i <Esc>ggo#include <><Esc>$i
     autocmd Filetype c inoremap ,f <Space>(<++>)<Space>{<Enter><++><Enter>}<Esc>2k0i
     autocmd Filetype c inoremap /* /*<Space><Space><Space>*/<Esc>3hi

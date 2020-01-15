@@ -15,14 +15,15 @@ bindsym $mod+Shift+q kill
 bindsym $mod+a exec $TERMINAL 
 bindsym $mod+Shift+a exec $TERMINAL -T 'Float'
 bindsym $mod+z exec firefox
-bindsym $mod+Shift+z exec $TERMINAL -T 'Musique' -e 'ncmpcpp'
 bindsym $mod+e exec $TERMINAL -e ranger
 bindsym $mod+r exec $TERMINAL -e vim 
 bindsym $mod+t exec xfce4-terminal --initial-title='Latex' --working-directory='/home/idk/Documents/Latex'
 bindsym $mod+Shift+t exec $TERMINAL -T 'Latex' -e ranger '/home/idk/Documents/Latex'
 bindsym $mod+d exec rofi -show run 
 bindsym $mod+l exec --no-startup-id xautolock -locknow; exec bash -c "sleep 0.5 && xset dpms force off"
-bindsym $mod+shift+y exec $TERMINAL -T 'irc' -e 'weechat'
+bindsym $mod+Shift+y exec $TERMINAL -T 'irc' -e 'weechat'
+bindsym Print --release exec xfce4-screenshooter
+bindsym Shift+Print --release exec xfce4-screenshooter -r
 
 # for demonstration
 bindsym $mod+m exec screenkey
@@ -84,7 +85,8 @@ bindsym XF86Display exec --no-startup-id arandr
 bindsym XF86Tools exec $TERMINAL -T 'Systeme' -e ranger '/home/idk/.config/system'
 #bindsym XF86Tools exec rofi 'xfce4-terminal -e 'vim "/home/idk/.config/system/$(ls ~/.config/system/ | rofi -dmenu -i -lines 8 -p "Edit")"''
 bindsym XF86Search exec rofi -show run
-bindsym XF86Explorer exec xfce4-screenshooter 
+bindsym XF86LaunchA --release exec $TERMINAL -T 'Musique' -e 'ncmpcpp'
+#bindsym XF86Explorer exec 
 bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Shudown Computer or Reboot ' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'reboot'" 
 bindsym F9 exec --no-startup-id ~/.screenlayout/Solo.sh
 bindsym F10 exec --no-startup-id ~/.screenlayout/Home.sh
