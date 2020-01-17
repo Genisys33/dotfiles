@@ -4,13 +4,19 @@ set mouse=a
 set ignorecase
 set autoindent
 syntax on
-command Nd execute ":NERDTree"
 
 " These next four lines are so that I break the habit of using the arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+" Shortcut 
+noremap <C-L> :nohl<CR>
+cmap wsu w !sudo tee > /dev/null %
+map <F5> :set spell spelllang=fr_FR<CR>
+map <F4> :set spell&<CR>
+command Nd execute ":NERDTree"
 
 " Indetation and spacing rules
 set expandtab
