@@ -11,9 +11,10 @@ fi
 # User specific aliases and functions
 
 #other
-alias neo="neofetch" \
+alias neo="neofetch --ascii_distro tux" \
     config="vim ~/.config/i3/config"\
-    cent="sudo docker run -it --rm centos"
+    dockcent="docker run -it --rm centos"\
+    dockdeb="docker run -it --rm debian"
 #alias date="while ((i==i)); do date '+%T %D' | toilet -f term -F border --gay; sleep 1; clear; done" #Thanks LL
 alias mines='gnome-mines'
 #alias friends="vlc -f ~/Musique/Toy\ Story\ -\ Je\ suis\ ton\ ami\ I\ Disney.mp3"
@@ -30,7 +31,9 @@ alias SS="sudo systemctl" \
 	mkd="mkdir -pv" \
     wak="xautolock -enable" \
     nowak="xautolock -disable" \
-    SV="sudo systemctl start mariadb httpd"
+    SV="sudo systemctl start mariadb httpd"\
+    blueton="sudo rfkill unblock bluetooth"\
+    bluetoof="sudo rfkill block bluetooth"
 
 #dnf
 alias install="sudo dnf install" \
@@ -42,7 +45,8 @@ alias install="sudo dnf install" \
 #virtu
 alias bootusb='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-screen -hda'\
     bootiso='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-screen -boot d -cdrom'\
-    bootpxe='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-screen -boot n -net nic -net tap,ifname=virttap,script=no,downscript=no'
+    bootpxe='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-screen -boot n -net nic -net tap,ifname=virttap,script=no,downscript=no'\
+    bootserver='wakeonlan 3c:d9:2b:52:b3:59'
 
 ###### PROMPT ######
 #[user directory]:>

@@ -22,6 +22,7 @@ bindsym $mod+Shift+t exec $TERMINAL -T 'Latex' -e ranger '/home/idk/Documents/La
 bindsym $mod+d exec rofi -show run 
 bindsym $mod+l exec --no-startup-id xautolock -locknow; exec bash -c "sleep 0.5 && xset dpms force off"
 bindsym $mod+Shift+y exec $TERMINAL -T 'irc' -e 'weechat'
+bindsym $mod+Shift+p exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 bindsym Print --release exec xfce4-screenshooter
 bindsym Shift+Print --release exec xfce4-screenshooter -r
 
@@ -196,9 +197,10 @@ for_window [class="discord"] resize set 700 400
 for_window [class="Arandr"] floating enable, resize set 750 500 
 for_window [class="msgcompose"] floating enable
 for_window [title="Musique"] floating enable, resize set 650 450
+for_window [class="Xfburn"] floating enable, resize set 450 450
 
 # Application Autostart
-exec feh --bg-scale ~/Images/anime/1577321457093.jpg
+exec feh --bg-scale ~/Images/anime/DeN10NLUQAApvNY.jpg
 exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 exec xset -b
 exec xfce4-power-manager
