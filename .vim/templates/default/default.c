@@ -1,7 +1,7 @@
-#include<<++>>
+#include <<++>>
 
 int main() {
 
-<++>
+    <++>
 
 }
