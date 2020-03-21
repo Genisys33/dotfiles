@@ -80,8 +80,10 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
 bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10" 
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10" 
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+#bindsym XF86MonBrightnessUp exec "xbacklight -inc 10" 
+#bindsym XF86MonBrightnessDown exec "xbacklight -dec 10" 
 bindsym XF86Display exec --no-startup-id arandr
 bindsym XF86Tools exec $TERMINAL -T 'Systeme' -e ranger '/home/idk/.config/system'
 #bindsym XF86Tools exec rofi 'xfce4-terminal -e 'vim "/home/idk/.config/system/$(ls ~/.config/system/ | rofi -dmenu -i -lines 8 -p "Edit")"''
@@ -172,7 +174,7 @@ workspace $ws15 output $mid_home
 # Open application on specific workspace
 assign [class="discord"] $ws3
 assign [class="Slack"] $ws17
-assign [class="Firefox|qutebrowser"] $ws4
+assign [class="firefox|qutebrowser"] $ws4
 assign [title="irc"] $ws6
 assign [class="Evince"] $ws7
 assign [class="vlc"] $ws8

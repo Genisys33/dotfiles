@@ -22,6 +22,9 @@ alias   subl="vim" \
         vi="vim" \
         emacs="vim"
 
+#Bye
+alias bisou="systemctl poweroff -i"
+
 #sys
 alias SS="sudo systemctl" \
         diff="diff --color=auto" \
