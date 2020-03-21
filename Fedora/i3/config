@@ -1,0 +1,304 @@
+# i3 config file 
+
+# Set mod key (Mod1=<Alt>, Mod4=<Super>)
+set $mod Mod4
+
+# Set monitor value
+set $left_home DP2-2
+set $mid_home DP2-1
+set $right_home DP2-3
+
+# Kill focused window 
+bindsym $mod+Shift+q kill
+
+# Basic Bindings
+bindsym $mod+a exec $TERMINAL 
+bindsym $mod+Shift+a exec $TERMINAL -T 'Float'
+bindsym $mod+z exec firefox
+bindsym $mod+e exec $TERMINAL -e ranger
+bindsym $mod+r exec $TERMINAL -e vim 
+bindsym $mod+t exec xfce4-terminal --initial-title='Latex' --working-directory='/home/idk/Documents/Latex'
+bindsym $mod+Shift+t exec $TERMINAL -T 'Latex' -e ranger '/home/idk/Documents/Latex'
+bindsym $mod+d exec rofi -show run 
+bindsym $mod+l exec --no-startup-id xautolock -locknow; exec bash -c "sleep 0.5 && xset dpms force off"
+bindsym $mod+Shift+y exec $TERMINAL -T 'irc' -e 'weechat'
+bindsym $mod+Shift+p exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
+bindsym Print --release exec xfce4-screenshooter
+bindsym Shift+Print --release exec xfce4-screenshooter -r
+
+# for demonstration
+bindsym $mod+m exec screenkey
+
+# exit i3 (logs you out of your x session)
+bindsym $mod+shift+e exec "i3-nagbar -t warning -m 'you pressed the exit shortcut. do you really want to exit i3? this will end your x session.' -b 'yes, exit i3' 'i3 exit'"
+
+# resize window (you can also use the mouse for that)
+bindsym $mod+x mode "resize"
+mode "resize" {
+        
+        # same bindings, but for the arrow keys
+        bindsym left resize shrink width 10 px or 10 ppt
+        bindsym down resize grow height 10 px or 10 ppt
+        bindsym up resize shrink height 10 px or 10 ppt
+        bindsym right resize grow width 10 px or 10 ppt
+
+        # exit resize mode: enter or escape
+        bindsym return mode "default"
+        bindsym escape mode "default"
+}
+
+# Movement
+bindsym $mod+f fullscreen toggle
+bindsym $mod+q layout toggle split
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+
+bindsym $mod+Shift+Left move left 20
+bindsym $mod+Shift+Right move right 20
+bindsym $mod+Shift+Down move down 20
+bindsym $mod+Shift+Up move up 20
+
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next
+
+bindsym $mod+Shift+space floating toggle
+
+focus_follows_mouse no
+
+# F1-F12 and XF86
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
+bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10" 
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10" 
+bindsym XF86Display exec --no-startup-id arandr
+bindsym XF86Tools exec $TERMINAL -T 'Systeme' -e ranger '/home/idk/.config/system'
+#bindsym XF86Tools exec rofi 'xfce4-terminal -e 'vim "/home/idk/.config/system/$(ls ~/.config/system/ | rofi -dmenu -i -lines 8 -p "Edit")"''
+bindsym XF86Search exec rofi -show run
+bindsym XF86LaunchA --release exec $TERMINAL -T 'Musique' -e 'ncmpcpp'
+#bindsym XF86Explorer exec 
+bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Shudown Computer or Reboot ' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'reboot'" 
+bindsym F9 exec --no-startup-id ~/.screenlayout/Solo.sh
+bindsym F10 exec --no-startup-id ~/.screenlayout/Home.sh
+bindsym Shift+F10 exec --no-startup-id ~/.screenlayout/Game.sh
+
+# Workspace names
+set $ws1 "1-Term"
+set $ws2 "2"
+set $ws3 "3-Discord"
+set $ws4 "4-Web"
+set $ws5 "5"
+set $ws6 "6-Irc"
+set $ws7 "7-Pdf"
+set $ws8 "8-Movies"
+set $ws9 "9-Mail"
+set $ws10 "10-Config"
+set $ws11 "11-Vbox"
+set $ws12 "12-Vm"
+set $ws13 "13-Latex"
+set $ws14 "14-Libre Office"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18-Musique"
+set $ws19 "19-Fichier Systeme"
+set $ws20 "20"
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+ctrl+1 workspace $ws11
+bindsym $mod+ctrl+2 workspace $ws12
+bindsym $mod+ctrl+3 workspace $ws13
+bindsym $mod+ctrl+4 workspace $ws14
+bindsym $mod+ctrl+5 workspace $ws15
+bindsym $mod+ctrl+6 workspace $ws16
+bindsym $mod+ctrl+7 workspace $ws17
+bindsym $mod+ctrl+8 workspace $ws18
+bindsym $mod+ctrl+9 workspace $ws19
+bindsym $mod+ctrl+0 workspace $ws20
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+Ctrl+1 move container to workspace $ws11
+bindsym $mod+Shift+Ctrl+2 move container to workspace $ws12
+bindsym $mod+Shift+Ctrl+3 move container to workspace $ws13
+bindsym $mod+Shift+Ctrl+4 move container to workspace $ws14
+bindsym $mod+Shift+Ctrl+5 move container to workspace $ws15
+bindsym $mod+Shift+Ctrl+6 move container to workspace $ws16
+bindsym $mod+Shift+Ctrl+7 move container to workspace $ws17
+bindsym $mod+Shift+Ctrl+8 move container to workspace $ws18
+bindsym $mod+Shift+Ctrl+9 move container to workspace $ws19
+bindsym $mod+Shift+Ctrl+0 move container to workspace $ws20
+
+# Dual Screen
+workspace $ws3 output $right_home
+workspace $ws4 output $left_home
+workspace $ws6 output $right_home
+workspace $ws8 output $mid_home
+workspace $ws9 output $right_home
+workspace $ws10 output $left_home
+workspace $ws13 output $mid_home
+workspace $ws15 output $mid_home
+
+# Open application on specific workspace
+assign [class="discord"] $ws3
+assign [class="Slack"] $ws17
+assign [class="Firefox|qutebrowser"] $ws4
+assign [title="irc"] $ws6
+assign [class="Evince"] $ws7
+assign [class="vlc"] $ws8
+assign [class="Thunderbird"] $ws9
+assign [title="Config"] $ws10
+assign [class="VirtualBox Manager"] $ws11
+assign [class="VirtualBoxVM"] $ws12
+assign [class="Qemu-system-x86_64"] $ws12 
+assign [title="Latex"] $ws13
+assign [class="libreoffice-*"] $ws14
+assign [class="Pragha"] $ws18
+assign [title="Systeme"] $ws19
+
+# Application in floating mode
+for_window [class="Galculator"] floating enable
+for_window [title="RatioMaster.NET 0.43"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [title="Bluetooth"] floating enable
+for_window [title="Contrôle du volume"] floating disable
+for_window [title="Float"] floating enable, resize set 600 350
+for_window [class="discord"] resize set 700 400
+for_window [class="Arandr"] floating enable, resize set 750 500 
+for_window [class="msgcompose"] floating enable
+for_window [title="Musique"] floating enable, resize set 650 450
+for_window [class="Xfburn"] floating enable, resize set 450 450
+
+# Application Autostart
+exec feh --bg-scale ~/Images/anime/DeN10NLUQAApvNY.jpg
+exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
+exec xset -b
+exec xfce4-power-manager
+exec blueberry-tray
+exec nm-applet
+exec --no-startup-id discord
+exec --no-startup-id xautolock -time 3 -locker burlock; exec bash -c "sleep 0.5 && xset dpms force off"
+exec --no-startup-id thunderbird
+exec dnfdragora-updater
+exec $TERMINAL -T 'Config' -e vim '/home/idk/.config/i3/config'
+exec $TERMINAL -T 'irc' -e 'weechat'
+
+# Rreload the configure i3
+bindsym $mod+Shift+c reload;exec notify-send 'Config Reload'
+bindsym $mod+Shift+r restart
+
+# Windows Custom
+bar { 
+	status_command i3status
+    i3bar_command i3bar
+	position top
+	mode dock
+	modifier none
+
+    colors {
+        background #222D31
+        statusline #F9FAF9
+        separator  #454947
+
+#                           border  backgr. text
+        focused_workspace  #08979D #6EC6CA #292F34
+        active_workspace   #595B5B #353836 #FDF6E3
+        inactive_workspace #595B5B #222D31 #EEE8D5
+        binding_mode       #16a085 #2C2C2C #F9FAF9
+    }
+}
+
+for_window [class="^.*"] title_format "  %title"
+for_window [class="^.*"] border pixel 2
+
+gaps inner 7
+gaps outer -1
+smart_gaps on
+smart_borders on
+hide_edge_borders none
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Resize window
+bindsym $mod+shift+b mode "resize"
+mode "resize" {
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # exit resize mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
