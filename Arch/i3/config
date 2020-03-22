@@ -21,7 +21,8 @@ bindsym $mod+t exec xfce4-terminal --initial-title='Latex' --working-directory='
 bindsym $mod+Shift+t exec $TERMINAL -T 'Latex' -e ranger '/home/idk/Documents/Latex'
 bindsym $mod+d exec rofi -show run 
 bindsym $mod+l exec --no-startup-id xautolock -locknow; exec bash -c "sleep 0.5 && xset dpms force off"
-bindsym $mod+Shift+y exec $TERMINAL -T 'irc' -e 'weechat'
+bindsym $mod+y exec $TERMINAL -T 'irc' -e 'weechat'
+bindsym $mod+Shift+y exec $TERMINAL -T 'Slack' -e 'slack'
 bindsym $mod+Shift+p exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 bindsym Print --release exec xfce4-screenshooter
 bindsym Shift+Print --release exec xfce4-screenshooter -r
@@ -174,7 +175,7 @@ workspace $ws17 output $right_home
 
 # Open application on specific workspace
 assign [class="discord"] $ws3
-assign [class="Slack"] $ws17
+assign [title="Slack"] $ws17
 assign [class="firefox|qutebrowser"] $ws4
 assign [title="irc"] $ws6
 assign [class="Evince"] $ws7
@@ -214,8 +215,7 @@ exec --no-startup-id xautolock -time 3 -locker burlock; exec bash -c "sleep 0.5 
 exec --no-startup-id thunderbird
 exec dnfdragora-updater
 exec $TERMINAL -T 'Config' -e vim '/home/idk/.config/i3/config'
-exec $TERMINAL -T 'irc' -e 'weechat'
-exec $TERMINAL -T 'Slack' -e 'slack-term -config ~/.slack-term/config'
+exec $TERMINAL -T 'irc' -e weechat
 
 # Rreload the configure i3
 bindsym $mod+Shift+c reload;exec notify-send 'Config Reload'
