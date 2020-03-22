@@ -170,6 +170,7 @@ workspace $ws9 output $right_home
 workspace $ws10 output $left_home
 workspace $ws13 output $mid_home
 workspace $ws15 output $mid_home
+workspace $ws17 output $right_home
 
 # Open application on specific workspace
 assign [class="discord"] $ws3
@@ -214,6 +215,7 @@ exec --no-startup-id thunderbird
 exec dnfdragora-updater
 exec $TERMINAL -T 'Config' -e vim '/home/idk/.config/i3/config'
 exec $TERMINAL -T 'irc' -e 'weechat'
+exec $TERMINAL -T 'Slack' -e 'slack-term -config ~/.slack-term/config'
 
 # Rreload the configure i3
 bindsym $mod+Shift+c reload;exec notify-send 'Config Reload'
