@@ -4,9 +4,9 @@
 set $mod Mod4
 
 # Set monitor value
-set $left_home DP2-2
-set $mid_home DP2-1
-set $right_home DP2-3
+set $left_home DP-2-2
+set $mid_home DP-2-1
+set $right_home DP-2-3
 
 # Kill focused window 
 bindsym $mod+Shift+q kill
