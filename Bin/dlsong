@@ -1,0 +1,13 @@
+#!/bin/bash
+rep=Musique
+
+cd ~/$rep
+
+### Function ###
+display_help() {
+    echo -e "Utilisation : dlsong [OPTION]... [FICHIER]...\n Le script va lancer le téléchargement de la musique du lien Youtube indiqué et le placer dans le répertoire Musqiue. Possibilité d'y définir un chemin. \n\n"
+    echo -e "  -h, --help \tAffiche l'aide et les options disponibles.\n"
+    echo -e "  -r, --rep \tDéfini le chemin vers lequel le fichier sera enregistré.\n"
+}
+
+youtube-dl $1 -x --output "%(title)s.%(ext)s" --audio-format mp3

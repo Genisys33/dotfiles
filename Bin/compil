@@ -1,0 +1,28 @@
+#!/bin/bash
+#set -xv
+
+# Variable
+file=$(readlink -f $1)
+dir=$(dirname $file)
+base=${file%.*}
+ext=`echo $1| awk -F"." '{print $NF}'`
+
+cd $dir || exit
+
+latextype () {
+    if [ $ext == "ptex" ] || [ $ext == "ftex" ] ; then
+        mv $file "$base".tex
+        ls $file |entr -r pdflatex "$base".tex
+    else
+        ls $file |entr -r pdflatex $file
+    fi
+
+    rm "$dir"/{*.aux,*.log,*.out,*.toc,*.nav,*.snm,*.idx} > /dev/null 2>&1
+}
+
+case $file in 
+    *\.tex) latextype  ;;
+    *\.ptex) latextype ;;
+    *\.ftex) latextype ;;
+    *\.md) pandoc $file --pdf-engine=xelatex -o "$base".pdf ;;
+esac
