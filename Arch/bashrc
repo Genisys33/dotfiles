@@ -10,9 +10,16 @@ alias ls='ls --color=auto'\
 
 #other
 alias neo="neofetch --ascii_distro tux" \
-    config="vim ~/.config/i3/config"\
-    dockcent="docker run -it --rm centos"\
-    dockdeb="docker run -it --rm debian"
+    config="vim ~/.config/i3/config" \
+    dockcent="docker run -it --rm centos" \
+    dockdeb="docker run -it --rm debian" \
+    pingg="ping -c 3 archlinux.org" \
+    gits='git status' \
+    ef='/usr/local/bin/evince_fzf.sh' \
+    zf='/usr/local/bin/zathura_fzf.sh' \
+    feh='i3-swallow feh' \
+    sxiv='i3-swallow sxiv'
+
 #alias date="while ((i==i)); do date '+%T %D' | toilet -f term -F border --gay; sleep 1; clear; done" #Thanks LL
 alias mines='gnome-mines'
 #alias friends="vlc -f ~/Musique/Toy\ Story\ -\ Je\ suis\ ton\ ami\ I\ Disney.mp3"
@@ -39,7 +46,8 @@ alias SS="sudo systemctl" \
 alias bootusb='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-screen -hda'\
     bootiso='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-screen -boot d -cdrom'\
     bootpxe='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-screen -boot n -net nic -net tap,ifname=virttap,script=no,downscript=no'\
-    bootserver='wakeonlan 3c:d9:2b:52:b3:59'
+#    bootserver='wakeonlan 3c:d9:2b:52:b3:59'
+    bootserver='wakeonlan 04:8d:38:ad:79:50'
 
 ###### PROMPT ######
 #[user directory]:>
@@ -47,4 +55,5 @@ alias bootusb='sudo qemu-system-x86_64 -m 2048 -enable-kvm -vga virtio -full-scr
 #PS1="[\u \W]:>"
 
 #[user(in red) directory(in green)]:>
-PS1="[\[\e[31m\]\u\[\e[m\] \[\e[32m\]\W\[\e[m\]]:> "
+#PS1="[\[\e[31m\]\u\[\e[m\] \[\e[32m\]\W\[\e[m\]]:> "
+PS1="\[\e[31m\]~>\[\e[m\] "

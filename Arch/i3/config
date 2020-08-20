@@ -14,21 +14,19 @@ bindsym $mod+Shift+q kill
 # Basic Bindings
 bindsym $mod+a exec $TERMINAL 
 bindsym $mod+Shift+a exec $TERMINAL -T 'Float'
-bindsym $mod+z exec firefox
+bindsym $mod+z exec qutebrowser
 bindsym $mod+e exec $TERMINAL -e ranger
 bindsym $mod+r exec $TERMINAL -e vim 
-bindsym $mod+t exec xfce4-terminal --initial-title='Latex' --working-directory='/home/idk/Documents/Latex'
-bindsym $mod+Shift+t exec $TERMINAL -T 'Latex' -e ranger '/home/idk/Documents/Latex'
+bindsym $mod+t exec $TERMINAL -T 'Latex' -cd '/home/idk/Documents/Latex'
+bindsym $mod+Shift+t exec $TERMINAL -T 'Latex' -e '/usr/local/bin/zathura_fzf.sh -latex'
 bindsym $mod+d exec rofi -show run 
 bindsym $mod+l exec --no-startup-id xautolock -locknow; exec bash -c "sleep 0.5 && xset dpms force off"
 bindsym $mod+y exec $TERMINAL -T 'irc' -e 'weechat'
 bindsym $mod+Shift+y exec $TERMINAL -T 'Slack' -e 'slack'
 bindsym $mod+Shift+p exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 bindsym Print --release exec xfce4-screenshooter
+bindsym $mod+Shift+o exec $TERMINAL -T 'Clock' -e /usr/local/bin/peaclock --config-dir ~/.config/peaclock/
 bindsym Shift+Print --release exec xfce4-screenshooter -r
-
-# for demonstration
-bindsym $mod+m exec screenkey
 
 # exit i3 (logs you out of your x session)
 bindsym $mod+shift+e exec "i3-nagbar -t warning -m 'you pressed the exit shortcut. do you really want to exit i3? this will end your x session.' -b 'yes, exit i3' 'i3 exit'"
@@ -92,30 +90,30 @@ bindsym XF86Search exec rofi -show run
 bindsym XF86LaunchA --release exec $TERMINAL -T 'Musique' -e 'ncmpcpp'
 #bindsym XF86Explorer exec 
 bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Shudown Computer or Reboot ' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'reboot'" 
-bindsym F9 exec --no-startup-id ~/.screenlayout/Solo.sh
-bindsym F10 exec --no-startup-id ~/.screenlayout/Home.sh
-bindsym Shift+F10 exec --no-startup-id ~/.screenlayout/Game.sh
+bindsym F9 exec --no-startup-id ~/.config/screenlayout/Solo.sh
+bindsym F10 exec --no-startup-id ~/.config/screenlayout/Home.sh
+bindsym Shift+F10 exec --no-startup-id ~/.config/screenlayout/Game.sh
 
 # Workspace names
-set $ws1 "1-Term"
+set $ws1 "1 Term"
 set $ws2 "2"
-set $ws3 "3-Discord"
-set $ws4 "4-Web"
+set $ws3 "3 Discord"
+set $ws4 "4 Web"
 set $ws5 "5"
-set $ws6 "6-Irc"
-set $ws7 "7-Pdf"
-set $ws8 "8-Movies"
-set $ws9 "9-Mail"
-set $ws10 "10-Config"
-set $ws11 "11-Vbox"
-set $ws12 "12-Vm"
-set $ws13 "13-Latex"
-set $ws14 "14-Libre Office"
+set $ws6 "6 Irc"
+set $ws7 "7 Pdf"
+set $ws8 "8 Movies"
+set $ws9 "9 Mail"
+set $ws10 "10 Config"
+set $ws11 "11 Vbox"
+set $ws12 "12 Vm"
+set $ws13 "13 Latex"
+set $ws14 "14"
 set $ws15 "15"
 set $ws16 "16"
 set $ws17 "17"
-set $ws18 "18-Musique"
-set $ws19 "19-Fichier Systeme"
+set $ws18 "18 Musique"
+set $ws19 "19 Fichier Systeme"
 set $ws20 "20"
 
 # Switch to workspace
@@ -191,6 +189,7 @@ assign [class="Pragha"] $ws18
 assign [title="Systeme"] $ws19
 
 # Application in floating mode
+for_window [title="Clock"] floating enable, resize set 300 155, move position 1615 15, move container to output primary
 for_window [class="Galculator"] floating enable
 for_window [title="RatioMaster.NET 0.43"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -202,9 +201,12 @@ for_window [class="Arandr"] floating enable, resize set 750 500
 for_window [class="msgcompose"] floating enable
 for_window [title="Musique"] floating enable, resize set 650 450
 for_window [class="Xfburn"] floating enable, resize set 450 450
+for_window [class="Nm-connection-editor"] floating enable
 
 # Application Autostart
-exec feh --bg-scale ~/Images/anime/DeN10NLUQAApvNY.jpg
+exec --no-startup-id /home/idk/.config/polybar/launch.sh
+exec --no-startup-id /usr/local/bin/slack
+exec feh --no-fehbg --bg-scale ~/Images/anime/1592826508859.png
 exec --no-startup-id redshift -l 44.837788:-0.579180 -t 5600:4000
 exec xset -b
 exec xfce4-power-manager
@@ -212,38 +214,54 @@ exec blueberry-tray
 exec nm-applet
 exec --no-startup-id discord
 exec --no-startup-id xautolock -time 3 -locker burlock; exec bash -c "sleep 0.5 && xset dpms force off"
-exec --no-startup-id thunderbird
-exec dnfdragora-updater
+# Pas intallé
+# exec --no-startup-id thunderbird
 exec $TERMINAL -T 'Config' -e vim '/home/idk/.config/i3/config'
 exec $TERMINAL -T 'irc' -e weechat
+exec --no-startup-id ~/.config/screenlayout/screenboot.sh
 
 # Rreload the configure i3
 bindsym $mod+Shift+c reload;exec notify-send 'Config Reload'
 bindsym $mod+Shift+r restart
 
 # Windows Custom
-bar { 
-	status_command i3status
-    i3bar_command i3bar
-	position top
-	mode dock
-	modifier none
+# bar { 
+#     status_command i3status
+#     i3bar_command i3bar
+# 	position top
+# 	mode dock
+# 	modifier none
+# 
+#     colors {
+#         background #222D31
+#         statusline #F9FAF9
+#         separator  #454947
+# 
+# # Workspace
+# #                           border  backgr. text
+#         focused_workspace  #08979D #6EC6CA #292F34
+#         active_workspace   #595B5B #353836 #FDF6E3
+#         inactive_workspace #595B5B #222D31 #EEE8D5
+#         binding_mode       #16a085 #2C2C2C #F9FAF9
+#     }
+# }
 
-    colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
+# Client Custom color
+set $bg-color             #0F1321
+set $inactive-bg-color    #0F1321
+set $text-color           #E8782D
+set $inactive-text-color  #9AAB9C
+set $urgent-bg-color      #B9B297
 
-#                           border  backgr. text
-        focused_workspace  #08979D #6EC6CA #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-    }
-}
+# Window Colors
+# 		 	                border				background			text					indicator
+client.focused		        $bg-color			$text-color			$text-color				$text-color
+client.unfocused	        $inactive-bg-color	$inactive-bg-color	$inactive-text-color	$text-color
+client.focused_inactive     $inactive-bg-color	$inactive-bg-color	$inactive-text-color	$text-color
+client.urgent		        $urgent-bg-color	$urgent-bg-color	$text-color				$text-color
 
 for_window [class="^.*"] title_format "  %title"
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
 gaps inner 7
 gaps outer -1
